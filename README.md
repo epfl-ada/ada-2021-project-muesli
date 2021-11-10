@@ -4,13 +4,13 @@ Perhaps "News polarisation: facts and myths"?
 
 ## Abstract
 
-We want to make a cool data story, please give us a good grade for Milestone 2,
-I already spent so much time on it.
-
 There are many news sources. How do we know which one to listen to?
 
 We often hear that news are becoming increasingly political.
 Not only that, they are also supposedly becoming more biased, or polarised, as well.
+
+Can we measure such things with data analysis? Do such measures agree with our
+intuitions?
 
 Is this really the case? Can we see that in the data set?
 
