@@ -1,109 +1,94 @@
-# Cool title for the project
+# Understanding news polarization
 
-Perhaps "News polarisation: facts and myths"?
+In this document, we will explain our idea for an analysis of the Quotebank dataset. In particular, we will address the results that we aim to obtain and the methodologies that we will use. 
 
 ## Abstract
 
-There are many news sources. How do we know which one to listen to?
+Globally, politics has become increasingly polarized in recent years. Some argue that social networks are the main cause of this problem, but it is undeniable that the media also plays a key role in the political debate. 
+Partisan media bias is defined as the situation in which a news source favors, criticizes, emphasizes or ignores certain political actors, policies, events or topics [1]. 
+In this project, we will analyse the frequency of reported quotes of politicians in several news sources to measure the politicization and polarization of the media. Secondly, we will dive deeper in the correlation between polarization and popularity to show whether the polarization of a news source influences its popularity. Lastly, we will classify the polarization of each news source by placing them in the political spectrum. 
 
-We often hear that news are becoming increasingly political.
-Not only that, they are also supposedly becoming more biased, or polarised, as well.
-
-Can we measure such things with data analysis? Do such measures agree with our
-intuitions?
-
-Is this really the case? Can we see that in the data set?
 
 ## Research questions
 
-- How can we measure politicization and polarisation of news sources?
-- How politized and biased are different news sources?
-- Are politicization and polarisation correlated with how popular a news source is?
+- How can we measure the politicization and polarization of news sources by analysing the quotes they publish?
+- How politicized and biased are different news sources? What’s their position in the political spectrum?
+- Are politicization and polarization correlated with how popular a news source is?
+
 
 ## Proposed additional datasets
 
-- Google Trends
-- Wikidata information for news sources - home URLs, reader numbers
-- Some social media message dataset (?)
+- WikiData, to extract information about the news source (home URLs, reader numbers, country) and the speaker (if he/she is a politician, political party)
+- Google Trends, to analyze the notoriety of a news source
+- Twitter APIs and/or Social Media Datasets to analyze the popularity of a news source
+
 
 ## Methods
+In this section, we will address the methodology that we will use to process the dataset and carry out our analysis. 
 
-First, we will need to narrow down the Quotebank dataset so that running our
-analysis doesn't take an excessively long time. The intention here is to let us
-iterate over the implementation of our analysis as easily as possible. We can
-remove all quotations that don't have a speaker identified. We can also split
-the dataset by year, so that our analysis can be run just on a single year.
+### Quotebank dataset cleaning
 
-Then, we need to know which news sources we will try to understand. There's a
-number of problems with the sources in the dataset - some of them appear to be
-clones of each other, some appear to always redirect to other sources, and some
-(judging on the URL) appear to have nothing to do with particular quotations.
+All the quotations without an identified speaker will be removed and the dataset will be split by year so that we can easily run our computation on a partial dataset. 
 
-To fix these problems, we will start by manually some news sources to initially
-run the analysis on. We can write further stages of the pipeline based on these
-sources while at the same time we will work on cleaning the news sources info.
-As an additional benefit, starting with a smaller number of news sources will
-let us iterate more quickly in the beginning.
+Some quotations have a list of speakers with an associated probability. We will keep only the quotations assigned to a speaker with a probability greater than a predefined threshold.
 
-As a measure of politicization of a news source, we propose to simply use the
-percentage of quotations in a given news source that come from politicians.
+Our data story will address the polarization of the most well-known news sources in the USA which deal with US politics. In order to realize an interesting and engaging data story, we have decided to do our analysis only on a small number of news sources (around 20). Therefore, we will manually select such news sources based on their popularity in the USA.  All the other news sources will be removed. 
 
-To measure the bias of a news source, we propose to use affiliations of
-politicians quoted in the source -- the more quotations come from politicians
-affiliated with one side of the spectrum, the more biased a news source is.
-However, some politicians are expected to appear more often than others in all
-sources -- for instance, Trump. To offset this, we may need to use deviation
-from the mean number of quotations rather than plain number of quotations for
-each politican.
 
-Measuring popularity of news sources depends on how many sources we have. If we
-have sufficiently few sources, we could just manually find out their readership
-numbers. If we consider every news source present in the cleaned data set, we
-should automate this instead. We could potentially use Wikidata to identify news
-sources based on their URLs and extract their reader numbers. Alternatively, we
-could use a dataset of social media messages to extract how often a particular
-news source is shared. It might also be interesting to have both these numbers --
-perhaps non-biased sources have more readers overall, but it's the biased ones
-that are most shared in social news?
+### Computing politicization and polarization
 
-Google Trends lets us check how often Google searches for a particular term are
-performed. It does not offer precise search numbers, but it does let compare
-different search terms. We could use it to compare select news sources and
-validate our method of assessing how popular a news source is.
+As a measure of the politicization of a news source, we will calculate the percentage of quotations made by people affiliated with a political party. To do this, we will first match each speaker with their political party using Wikidata. Secondly, we will compute the number of quotes reported for each side of the political spectrum. However, some politicians are expected to appear more often than others in all sources. For instance, governors or the President will be likely to appear often in all news sources, regardless of their level of polarization. Therefore, we will use the deviation from the mean in the number of quotes for each party to classify the polarisation of a news source.
 
-## Proposed timeline
+### Understanding correlations between politicization, polarization and popularity
 
-We have the following separate tasks:
+Measuring popularity is a challenging task because it can be done from both a quantitative and qualitative point of view and it’s an open question in sociological research [2]. Something popular is often associated with something which is liked by a large part of the population. Nevertheless, popularity on social media can be associated with opposite sentiments like disgust and indignation. Therefore, we will define popularity with a set of quantitative parameters. Some of them are publicly made available by the news sources (e.g. paying subscribers), some are provided by internet audit companies (e.g. monthly visitors) and some can be derived using online tools (e.g. number of Google Searches using Google Trends). We will compute the popularity of a news source on social media by using Twitter APIs or a Social Media dataset. 
 
-- News source cleanup
-- Calculation of politicization/polarisation
-- Calculation of popularity
-- Calculation of correlation between politicization/polarisation and popularity
-- Preparation of the data story (presentation techniques, preparing the story)
+### Presenting our results
 
-We can start working on other tasks without cleaning up the news sources, just
-by working with a manual selection of news sources. Similarly, we can keep
-investigating how to calculate correlation and present the data story (which
-includes plotting the data in an interesting way) concurrently with other tasks.
+> Science is not finished until it is communicated (Mark Walport)
 
-The following is a tentative timeline until Christmas that includes a lot of
-slack to account for, for instance, Homework 2:
+We strongly believe that this research will be meaningful if we will be able to communicate our findings effectively. Therefore, we will construct an engaging data story that will explain how we reached our conclusions and contains information on the political events that took place during the period analysed.
 
-- Week 1,2: calculate politicization/polarisation and popularity
-- Week 3,4: calculate the correlation between politicization/polarisation and
-  popularity
-- Week 5,6: re-run the analysis on cleaned news sources, create the data story
+
+## Timeline and organization
+
+We will need to perform the following tasks:
+
+1. Quotations filtering 
+2. Computing the politicization/polarization of news sources
+3. Computing the popularity of news sources
+4. Computing the correlation between politicization/polarization and popularity
+5. Preparing the data story (presentation techniques, preparing the story, political events)
+
+
+Tasks (1) and (3) can be performed at the same time. Once finished, we will be able to work on task (2) and (4). As described above, the data story will play an important role in our research project. As a consequence, we will start working on its draft in the early stages of the project.  
+
+We will follow this timeline:
+
+
+- Week 1, 2: tasks (1) and (3)
+- Week 3, 4: tasks (2) and (4) and (5)
+- Week 5, 6: tasks (4) and (5)
+
+Each of the listed tasks will require a lot of effort. Therefore, we will pick a *leader* for each of them who will ensure that his tasks are progressing. We will meet regularly to be able to evenly split the workload. 
+
 
 ## Organization
 
-We will group tasks into four groups and for each group, we will pick a "leader".
-The leader is the person responsible for ensuring tasks in the group
-are progressing, but otherwise we will continue to meet, discuss and work together
-on the tasks so that we evenly split the load. The groups are:
+We will group tasks into four groups and for each group, we will pick a "leader". The leader is the person responsible for ensuring tasks in the group are progressing, but otherwise we will continue to meet, discuss and work together on the tasks so that we evenly split the load. The groups are:
+
 
 - News source cleanup & calculation of popularity
-- Calculation of politicization/polarisation
-- Calculation of correlation between politicization/polarisation and popularity
+- Calculation of politicization/polarization
+- Calculation of correlation between politicization/polarization and popularity
 - Data story preparation
 
-## Questions for the TAs
+## Questions for TAs
+
+We would be grateful for a suggestion of a dataset that we could use to analyse the popularity of a news source on social media.
+
+## References
+
+[1]: Shultziner D, Stukalin Y. Distorting the News? The Mechanisms of Partisan Media Bias and Its Effects on News Production. Political Behavior. 2021;43(1):201–222. doi:10.1007/s11109-019-09551-y.
+
+[2]: Cillessen, Antonius HN, and Peter EL Marks. "Conceptualizing and measuring popularity." Popularity in the peer system (2011): 25-56.
