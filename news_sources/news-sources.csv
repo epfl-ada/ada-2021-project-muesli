@@ -1,0 +1,20 @@
+name;domain;pew_democrats_survey;pew_republicans_survey;pew_difference;pew_classification;similarweb_total_visitors;similarweb_pages_per_visit;similarweb_bounce_rate;twitter_followers;notes
+CNN;cnn.com;34;13;21;left;500,58;1,96;58,78;55,4;
+New York Times;nytimes.com;48;11;37;left;312,21;2,26;62,74;51;
+Fox News;foxnews.com;9;46;37;right;277,72;3,06;47,63;20,4;
+Washington Post;washingtonpost.com;45;12;33;left;142,45;2,14;61,12;18,4;
+New York Post;nypost.com;22;32;10;mixed;109,06;1,82;66,41;2,3;
+USA Today;usatoday.com;25;19;6;mixed;100,06;2,18;70,13;4,4;
+Business Insider;businessinsider.com;40;20;20;left;97,47;2,20;72,87;3,5;
+Wall Street Journal;wsj.com;31;24;7;mixed;73,11;1,93;65,78;19,2;
+NBC News;nbcnews.com;27;20;7;mixed;66,90;1,45;74,57;8,7;
+HuffPost;huffpost.com;53;11;42;left;62,77;2,05;60,62;11,3;
+Breitbart;breitbart.com;1;80;79;right;47,50;2,53;49,66;1,4;
+The Hill;thehill.com;42;22;20;left;42,07;1,86;69,03;4,2;
+Politico;politico.com;49;13;36;left;41,99;2,80;66,20;4,5;
+ABC News;abcnews.go.com;22;21;1;mixed;31,81;1,87;77,79;16,9;
+CBS News;cbsnews.com;23;22;1;mixed;30,38;2,10;72,82;8,3;
+Vice;vice.com;48;7;41;left;27,89;1,51;73,69;1;Twitter followers refer to @ViceNews and not @Vice
+Vox;vox.com;62;4;58;left;20,75;1,40;73,70;1;
+Washington Examiner;washingtonexaminer.com;14;44;30;right;13,32;1,47;73,08;0,3;
+Daily Caller;dailycaller.com;3;72;69;right;7,86;2,02;60,22;0,8;
