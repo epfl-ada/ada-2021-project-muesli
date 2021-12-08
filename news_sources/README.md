@@ -13,7 +13,7 @@ I have selected the news sources and added some features.
 |`name`|Name of the news source|
 |`domain`|Main domain of the news source|
 |`pew_democrats_survey`| Percentage of people that consider that news source left-biased
-|`pew_republicans_survey`| Percentage of people that consider that news source left-biased
+|`pew_republicans_survey`| Percentage of people that consider that news source right-biased
 |`pew_difference`| Difference in abs between `pew_democrats_survey` and `pew_republicans_survey`
 |`similarweb_total_visitors`| Number of visitor of the website (in millions) in the month of october 2021
 |`similarweb_pages_per_visit`| Mean number of pages per visit on the website
