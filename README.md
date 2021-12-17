@@ -1,6 +1,6 @@
 # Understanding news polarization
 
-This repository contains the project of the group *Muesli* for the course (Applied Data Analysis)[https://ada.epfl.ch] @ EPFL. 
+This repository contains the project of the group *Muesli* for the course [Applied Data Analysis](https://ada.epfl.ch) @ EPFL. 
 
 ## Abstract
 
