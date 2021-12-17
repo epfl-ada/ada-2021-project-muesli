@@ -10,16 +10,16 @@ In this project, we will analyse the frequency of reported quotes of politicians
 
 ## Data story
 
-The data story can be found in this (website)[https://giacomoorsi.github.io/usa-news-politicization/]
+The data story can be found in this [website](https://giacomoorsi.github.io/usa-news-politicization/)
 
 ## Notebook
 
 The folder `news_sources` contains information about the news sources that we analysed. 
-The notebook, which contains both the data analysis and the plot generation, can be found (here)[scripts/pipeline.ipynb]
+The notebook, which contains both the data analysis and the plot generation, can be found [here](scripts/pipeline.ipynb)
 
 ## Group organization
 
-We were able to follow the (timeline)[project_proposal.md#timeline-and-organization] that we set in the milestone 2. In particular: 
+We were able to follow the [timeline](project_proposal.md#timeline-and-organization) that we set in the milestone 2. In particular: 
  
 - **Vittorio**: worked with Quotebank to reduce its size by removing unuseful information; revised the content of the data story
 - **Stefan**: worked with Quotebank to filter the quotes of the selected news sources
@@ -29,4 +29,4 @@ We were able to follow the (timeline)[project_proposal.md#timeline-and-organizat
 
 ### Project proposal (milestone 2)
 
-The project proposal (the old `README`) can be found (here)[project_proposal.md]
+The project proposal (the old `README`) can be found [here](project_proposal.md)
